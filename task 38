@@ -1,0 +1,75 @@
+Задание 7.1
+
+function printInfo() {
+    console.log(`Name: ${this.name}, Age: ${this.age}`);
+}
+
+const person = {
+    name: 'Alice',
+    age: 25
+};
+
+printInfo.call(person);
+```
+Задание 7.2
+
+function calculate(a, b, operator) {
+    switch (operator) {
+        case '+':
+            return a + b;
+        case '-':
+            return a - b;
+        case '*':
+            return a * b;
+        case '/':
+            return a / b;
+        default:
+            return 'Неизвестный оператор';
+    }
+}
+
+const context = {};
+const result = calculate.apply(context, [2, 3, "+"]);
+console.log(result);
+
+Задание 7.3
+
+const users = [
+    { name: 'Alice', age: 25 },
+    { name: 'Bob', age: 17 },
+    { name: 'Charlie', age: 30 },
+    { name: 'David', age: 16 }
+];
+
+const adults = users.filter(user => user.age >= 18);
+console.log(adults);
+
+const names = users.map(user => user.name);
+console.log(names);
+
+Задание 7.4
+
+function setFullName(fullName) {
+    this.fullName = fullName;
+}
+
+const person = {
+    name: 'Alice',
+    age: 25
+};
+
+
+const setPersonFullName = setFullName.bind(person);
+
+// Вызов привязанной функции
+setPersonFullName("John Smith");
+console.log(person.fullName); // "John Smith"
+
+Задание 7.5
+function getUniqueSortedNumbers(numbers) {
+    // Создаем Set для получения уникальных значений,
+    // преобразуем обратно в массив и сортируем
+    return [...new Set(numbers)].sort((a, b) => a - b);
+}
+
+
