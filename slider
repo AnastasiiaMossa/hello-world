@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>m-42</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="three-links">
+            <a href="#" onclick="dot(0)" class="title-of-links">Rostov-on-Don Patriotic</a>
+            <a href="#" onclick="dot(1)" class="title-of-links">Sochi Thieves</a>
+            <a href="#" onclick="dot(2)" class="title-of-links">Rostov-on-Don, Admiral</a>
+        </div>             
+        <div class="main">
+            <div class="left">                
+                <h1 class="title">Completed <span class="span">projects <span class="rectangle"></span></span></h1>
+                <p class="first-parag">Only a small part of the work performed by our company is presented on the site. For 14 years in the construction market we have made happy more than 1000 families</p>
+                <div class="notes">
+                    <div class="additional">
+                        <h2 class="little-title">City:</h2>
+                        <small id="city" class="small">Rostov-on-Don LCD admiral</small>
+                    </div>
+                    <div class="additional">
+                        <h2 class="little-title">apartment area:</h2>
+                        <small id="metr" class="small">81 m2</small>
+                    </div>
+                    <div class="additional">
+                        <h2 class="little-title">Repair time:</h2>
+                        <small id="time" class="small">3.5 months</small>
+                    </div>
+                    <div class="additional">
+                        <h2 class="little-title">Repair Cost:</h2>
+                        <small class="small">Upon request</small>
+                    </div>
+                </div>
+                <div class="slider">
+                    <button class="slider-vector" onclick="prev()"><img src="vector1.svg" alt="vector"></button>
+                    <a href="#" class="slider-dot" onclick="dot(0)"></a>
+                    <a href="#" class="slider-dot" onclick="dot(1)"></a>
+                    <a href="#" class="slider-dot" onclick="dot(2)"></a>
+                    <button class="slider-vector two" onclick="next()"><img src="vector1.svg" alt="vector"></button>
+                </div>
+            </div>
+            <div class="right">
+                <img src="foto/first-foto.png" id="img" alt="first" class="foto">
+                
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+* {
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'Yeseva One';
+    src: url('./fonts/ofont.ru_Yeseva One.ttf') format('truetype');
+}
+
+body {
+    background-color: rgba(19, 19, 19, 1);
+    margin: 0;
+    padding: 0;
+    font-family: 'Yeseva One';
+}
+
+.container {
+    margin: 25px auto;
+    width: 1100px;
+}
+
+.main {
+    display: flex;
+
+}   
+
+.left {
+    width: 40%;
+    padding-right: 20px; 
+}
+
+.title {
+    font-weight: 400;
+    font-size: 40px;
+    color: rgba(227, 184, 115, 1);   
+    margin: 0;
+}
+
+.rectangle {
+    display: inline-block;
+    background-color: rgba(227, 184, 115, 1);   
+    width: 92px;
+    height: 1px;
+}
+
+.span {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.first-parag {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 1);
+    line-height: 25px;
+    margin: 20px 0;
+}
+
+.notes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.additional {
+    display: flex;
+    flex-direction: column;
+}
+
+.little-title {
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(227, 184, 115, 1); 
+}
+
+.small {
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+}
+
+.slider {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-top: 80px;
+}
+
+.slider-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+}
+
+.slider-vector {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+.two {
+    transform: rotate(180deg);
+}
+
+.right { 
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 60%;
+}
+
+.three-links {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 60%;
+    margin-left: auto;
+}
+
+.title-of-links {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 16px;
+    padding: 20px 10px;
+    text-decoration: none;
+}
+
+.title-of-links:hover {
+    color: rgba(227, 184, 115, 1);
+    text-decoration: underline;
+    text-underline-offset: 10px;   
+}
+
+.foto {
+   width: 100%;
+}
+
+@media (max-width: 1150px) {
+    .container {
+        width: 900px;
+    }
+}
+
+@media (max-width: 950px) {
+    .container {
+        width: 700px;
+    }
+
+    .main {
+        flex-direction: column-reverse;
+    }
+
+    .left {
+        width: 100%;
+        padding-right: 0;
+        padding-top: 20px;
+    }
+
+    .right {
+        width: 100%;
+    }
+
+    .three-links {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 750px) {
+    .container {
+        width: 550px;
+    }
+}
+
+@media (max-width: 550px) {
+    .container {
+        width: 100%;
+        padding: 0 20px;
+    }
+}
+
+let flats = [
+    {
+        img: 'foto/first-foto.png',
+        city: 'Rostov-on-Don LCD admiral',
+        metr: '81 m2',
+        time: '3,5 months'
+    },
+
+    {
+        img: 'foto/second-foto.png',
+        city: 'Sochi Thieves',
+        metr: '105 m2',
+        time: '4 months'
+    },
+
+    {
+        img: 'foto/three.png',
+        city: 'Rostov-on-Don Patriotic',
+        metr: '93 m2',
+        time: '3 months'
+    }
+]
+
+let current = 0;
+
+function prev() {
+    if (current == 0) {
+        current = flats.length - 1
+    } else {
+        current-- 
+    }
+    document.getElementById('img').src = flats[current]['img']
+    document.getElementById('city').innerHTML = flats[current]['city']
+    document.getElementById('metr').innerHTML = flats[current]['metr']
+    document.getElementById('time').innerHTML = flats[current]['time']
+}
+
+function next() {
+    if (current == flats.length - 1) {
+        current = 0
+    } else {
+        current++ 
+    }
+    document.getElementById('img').src = flats[current]['img']
+     document.getElementById('city').innerHTML = flats[current]['city']
+    document.getElementById('metr').innerHTML = flats[current]['metr']
+    document.getElementById('time').innerHTML = flats[current]['time']
+}
+
+function dot(id) {
+    current = id
+    document.getElementById('img').src = flats[current]['img']
+    document.getElementById('city').innerHTML = flats[current]['city']
+    document.getElementById('metr').innerHTML = flats[current]['metr']
+    document.getElementById('time').innerHTML = flats[current]['time']
+}
